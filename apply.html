@@ -14,158 +14,193 @@
         html, body {
             width: 100%;
             min-height: 100vh;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #2b2b2b;
             overflow-x: hidden;
         }
         .container {
             width: 100%;
             min-height: 100vh;
-            background-color: #ffffff;
             display: flex;
             flex-direction: column;
         }
-        /* Header */
+
+        /* --- Header --- */
         .header {
-            background: linear-gradient(to right, #ffd15c, #ff944d);
+            background: linear-gradient(135deg,#e97637);
             display: flex;
             align-items: center;
-            padding: 15px 5%;
+            padding: 20px 5%;
             width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
         .header-logo {
-            margin-right: 20px;
+            margin-right: 25px;
         }
         .logo-img {
-            height: 110px;
+            height: 100px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .header-text {
             text-align: center;
             flex-grow: 1;
+            color: #ffffff;
         }
         .header-text h1 {
             font-size: 38px;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
             font-family: 'Times New Roman', serif;
             font-weight: bold;
             letter-spacing: 2px;
+            margin-bottom: 4px;
         }
         .header-text h2 {
             font-size: 20px;
-            color: #000;
-            font-weight: bold;
-            margin-top: 5px;
+            font-weight: 600;
         }
         .header-text h3 {
-            font-size: 18px;
-            color: #000;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 2px;
         }
         
-        /* Navigation */
+        /* --- Navigation --- */
         .nav-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 5%;
-            border-bottom: 1px solid #ddd;
+            padding: 12px 5%;
+            background-color: #ffffff;
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
             width: 100%;
-            background-color: #fff;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .welcome-text {
-            font-size: 18px;
+          .welcome-text {
+            font-size: 25px;
             font-weight: bold;
+            color: #030303;
         }
         .nav-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
         .nav-btn {
             display: inline-block;
-            background-color: #e0e0e0;
-            color: #000;
+            background-color: #f1f3f5;
+            color: #495057;
             text-decoration: none;
-            padding: 8px 25px;
-            font-size: 16px;
-            border-radius: 2px;
+            padding: 9px 22px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
             text-align: center;
-            border: 1px solid #ccc;
-            transition: background-color 0.2s;
+            border: 1px solid #ced4da;
+            transition: all 0.2s ease-in-out;
         }
         .nav-btn:hover {
-            background-color: #d0d0d0;
+            background-color: #e68a17;
+            color: #ffffff;
+            border-color: #e68a17;
+        }
+        .nav-btn.active {
+            background-color: #e68a17;
+            color: #ffffff;
+            border-color: #e68a17;
         }
 
-        /* Content */
+        /* --- Content --- */
         .content {
             flex: 1;
-            padding: 30px 5%;
+            padding: 40px 5%;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
         }
         .section-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            margin-bottom: 25px;
             flex-wrap: wrap;
+            gap: 15px;
         }
         .section-title {
             font-size: 24px;
             font-weight: bold;
+            color: #e68a17;
+            border-left: 5px solid #e68a17;
+            padding-left: 12px;
         }
-        .btn-fill-form {
-            background-color: #f39c12;
-            color: #fff;
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons Style */
+        .btn-fill-form, .btn-confirm-data {
+            background-color: #e68a17;
+            color: #ffffff;
             text-decoration: none;
             padding: 10px 24px;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
-            border-radius: 4px;
+            border-radius: 6px;
             display: inline-block;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(230, 138, 23, 0.25);
+            border: none;
         }
-        .btn-fill-form:hover {
-            background-color: #e67e22;
+        .btn-fill-form:hover, .btn-confirm-data:hover {
+            background-color: #cc750a;
+            box-shadow: 0 4px 10px rgba(204, 117, 10, 0.35);
+            transform: translateY(-1px);
         }
 
         /* Table Style */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background-color: #fff;
+            border: 1px solid #e9ecef;
         }
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .schedule-table th, .schedule-table td {
-            padding: 14px 18px;
-            text-align: left;
         }
         .schedule-table th {
-            background-color: #dcdcdc;
+            background-color: #e68a17;
+            color: #ffffff;
             font-size: 18px;
             font-weight: bold;
-            color: #333;
+            padding: 16px 20px;
             text-align: center;
         }
-        .schedule-table td.faculty-header {
-            background-color: #ebebeb;
+        .schedule-table td.faculty-header, .schedule-table td.faculty-title {
+            background-color: #fff8e7;
+            color: #cc750a;
             font-weight: bold;
             font-size: 16px;
+            padding: 12px 20px;
+            border-bottom: 1px solid #ffe8b3;
+            border-top: 1px solid #ffe8b3;
         }
         .schedule-table tr.data-row {
-            border-bottom: 1px solid #f0f0f0;
-            background-color: #fafafa;
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.15s;
         }
-        .schedule-table tr.data-row:nth-child(even) {
-            background-color: #ffffff;
+        .schedule-table tr.data-row:hover {
+            background-color: #fffdf5;
+        }
+        .schedule-table td {
+            padding: 14px 20px;
+            font-size: 15px;
         }
         .col-program {
             width: 50%;
@@ -175,25 +210,51 @@
             text-align: center !important;
         }
 
-        /* Footer */
+        /* --- Footer --- */
         .footer {
             text-align: center;
-            padding: 20px 5%;
+            padding: 25px 5%;
             margin-top: auto;
             width: 100%;
             background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
         }
         .footer-line {
             border: none;
-            border-top: 3px solid #000;
+            border-top: 3px solid #e68a17;
             margin-bottom: 15px;
-            width: 90%;
+            width: 100px;
             margin-left: auto;
             margin-right: auto;
+            border-radius: 2px;
         }
         .footer p {
             font-size: 14px;
-            color: #333;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .nav-buttons {
+                justify-content: center;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -209,11 +270,12 @@
                 <h3>วิทยาเขตปราจีนบุรี</h3>
             </div>
         </div>
+
         <div class="nav-bar">
             <div class="welcome-text">ยินดีต้อนรับเข้าสู่เว็บไซต์</div>
             <div class="nav-buttons">
                 <a href="index.html" class="nav-btn">หน้าแรก</a>
-                <a href="apply.html" class="nav-btn" style="background-color: #888; color: white;">รับสมัครเรียน</a>
+                <a href="apply.html" class="nav-btn active">รับสมัครเรียน</a>
                 <a href="contact.html" class="nav-btn">ติดต่อ</a>
             </div>
         </div>
@@ -221,7 +283,10 @@
         <div class="content">
             <div class="section-header">
                 <div class="section-title">กำหนดการรับสมัคร</div>
-                <a href="form.html" class="btn-fill-form">กรอกข้อมูลสมัคร</a>
+                <div class="action-buttons">
+                    <a href="form.html" class="btn-fill-form">กรอกข้อมูลสมัคร</a>
+                    <a href="confirm.html" class="btn-confirm-data">ยืนยันข้อมูลรับสมัคร</a>
+                </div>
             </div>
 
             <div class="table-responsive">
@@ -234,7 +299,7 @@
                     <tbody>
                         <!-- คณะครุศาสตร์อุตสาหกรรม -->
                         <tr>
-                            <td class="faculty-header" colspan="1">คณะครุศาสตร์อุตสาหกรรม</td>
+                            <td class="faculty-title">คณะครุศาสตร์อุตสาหกรรม</td>
                             <td class="faculty-header col-date">วันเริ่มต้น</td>
                             <td class="faculty-header col-date">วันสิ้นสุด</td>
                         </tr>
@@ -251,7 +316,9 @@
 
                         <!-- วิทยาลัยเทคโนโลยีอุตสาหกรรม -->
                         <tr>
-                            <td class="faculty-header" colspan="3">วิทยาลัยเทคโนโลยีอุตสาหกรรม</td>
+                            <td class="faculty-title">วิทยาลัยเทคโนโลยีอุตสาหกรรม</td>
+                            <td class="faculty-header col-date">วันเริ่มต้น</td>
+                            <td class="faculty-header col-date">วันสิ้นสุด</td>
                         </tr>
                         <tr class="data-row">
                             <td class="col-program">โครงการโควตาเรียนดี (วุฒิ ม.3 ม.6 ปวช. ปวส)</td>

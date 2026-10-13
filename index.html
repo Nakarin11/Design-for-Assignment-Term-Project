@@ -14,114 +14,139 @@
         html, body {
             width: 100%;
             min-height: 100vh;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #2b2b2b;
             overflow-x: hidden;
         }
         .container {
             width: 100%;
             min-height: 100vh;
-            background-color: #ffffff;
             display: flex;
             flex-direction: column;
         }
-        /* Header */
+
+        /* --- Header --- */
         .header {
-            background: linear-gradient(to right, #ffd15c, #ff944d);
+            background: linear-gradient(135deg, #e97637);
             display: flex;
             align-items: center;
-            padding: 15px 5%;
+            padding: 20px 5%;
             width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
         .header-logo {
-            margin-right: 20px;
+            margin-right: 25px;
         }
         .logo-img {
-            height: 110px;
+            height: 100px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .header-text {
             text-align: center;
             flex-grow: 1;
+            color: #ffffff;
         }
         .header-text h1 {
             font-size: 38px;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
             font-family: 'Times New Roman', serif;
             font-weight: bold;
             letter-spacing: 2px;
+            margin-bottom: 4px;
         }
         .header-text h2 {
             font-size: 20px;
-            color: #000;
-            font-weight: bold;
-            margin-top: 5px;
+            font-weight: 600;
         }
         .header-text h3 {
-            font-size: 18px;
-            color: #000;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-top: 2px;
         }
         
-        /* Navigation */
+        /* --- Navigation --- */
         .nav-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 5%;
-            border-bottom: 1px solid #ddd;
+            padding: 12px 5%;
+            background-color: #ffffff;
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
             width: 100%;
-            background-color: #fff;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .welcome-text {
-            font-size: 18px;
+          .welcome-text {
+            font-size: 25px;
             font-weight: bold;
+            color: #030303;
         }
         .nav-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
         .nav-btn {
             display: inline-block;
-            background-color: #e0e0e0;
-            color: #000;
+            background-color: #f1f3f5;
+            color: #495057;
             text-decoration: none;
-            padding: 8px 25px;
-            font-size: 16px;
-            border-radius: 2px;
+            padding: 9px 22px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 6px;
             text-align: center;
-            border: 1px solid #ccc;
-            transition: background-color 0.2s;
+            border: 1px solid #ced4da;
+            transition: all 0.2s ease-in-out;
         }
         .nav-btn:hover {
-            background-color: #d0d0d0;
+            background-color: #e68a17;
+            color: #ffffff;
+            border-color: #e68a17;
+        }
+        .nav-btn.active {
+            background-color: #e68a17;
+            color: #ffffff;
+            border-color: #e68a17;
         }
 
-        /* Content */
+        /* --- Content Layout (ปรับ max-width ให้เท่ากับ contact.html ที่ 1200px) --- */
         .content {
             flex: 1;
-            padding: 30px 5%;
+            padding: 40px 5%;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .posters-container {
+
+        .top-grid {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 10px;
-            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .right-column {
+            flex: 1.25;
         }
         .poster-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            border: 1px solid #eee;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            border-radius: 6px;
+            background-color: #ffffff;
+            border-radius: 10px;
             overflow: hidden;
-            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .poster-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(230, 138, 23, 0.2);
         }
         .poster-card img {
             width: 100%;
@@ -129,30 +154,102 @@
             display: block;
         }
 
-        /* Footer */
+        .horizontal-line {
+            border: none;
+            border-top: 2px solid #e9ecef;
+            margin: 30px 0;
+        }
+
+        .lifestyle-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+            border-left: 6px solid #e68a17;
+        }
+        .lifestyle-info {
+            flex: 1.2;
+        }
+        .lifestyle-info h3 {
+            color: #e68a17;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .lifestyle-info p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #495057;
+            text-align: justify;
+        }
+        .lifestyle-image {
+            flex: 1;
+        }
+        .lifestyle-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Footer --- */
         .footer {
             text-align: center;
-            padding: 20px 5%;
+            padding: 25px 5%;
             margin-top: auto;
             width: 100%;
             background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
         }
         .footer-line {
             border: none;
-            border-top: 3px solid #000;
+            border-top: 3px solid #e68a17;
             margin-bottom: 15px;
-            width: 90%;
+            width: 100px;
             margin-left: auto;
             margin-right: auto;
+            border-radius: 2px;
         }
         .footer p {
             font-size: 14px;
-            color: #333;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .nav-buttons {
+                justify-content: center;
+            }
+            .top-grid {
+                flex-direction: column;
+            }
+            .lifestyle-card {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <div class="header">
             <div class="header-logo">
                 <img src="images/logo.png" alt="KMUTNB Logo" class="logo-img">
@@ -163,26 +260,51 @@
                 <h3>วิทยาเขตปราจีนบุรี</h3>
             </div>
         </div>
+
+        <!-- Navigation Bar -->
         <div class="nav-bar">
             <div class="welcome-text">ยินดีต้อนรับเข้าสู่เว็บไซต์</div>
             <div class="nav-buttons">
-                <a href="index.html" class="nav-btn" style="background-color: #888; color: white;">หน้าแรก</a>
+                <a href="index.html" class="nav-btn active">หน้าแรก</a>
                 <a href="apply.html" class="nav-btn">รับสมัครเรียน</a>
                 <a href="contact.html" class="nav-btn">ติดต่อ</a>
             </div>
         </div>
         
+        <!-- Main Content -->
         <div class="content">
-            <div class="posters-container">
-                <div class="poster-card">
-                    <img src="images/pooster1.jpg" alt="รับสมัครโควตา ปวส.">
+            <div class="top-grid">
+                <div class="left-column">
+                    <div class="poster-card">
+                        <img src="images/images2.png" alt="เปิดรับสมัครนักศึกษาใหม่">
+                    </div>
+                    <div class="poster-card">
+                        <img src="images/images1.png" alt="ปฏิทิน TCAS70">
+                    </div>
                 </div>
-                <div class="poster-card">
-                    <img src="images/pooster2.jpg" alt="รับสมัครนักศึกษา ปวส. ต่อเนื่อง/เทียบโอน">
+                <div class="right-column">
+                    <div class="poster-card">
+                        <img src="images/images3.png" alt="กำหนดการรับสมัครนักศึกษา TCAS 70">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="horizontal-line">
+
+            <div class="lifestyle-card">
+                <div class="lifestyle-info">
+                    <h3>การใช้ชีวิตในรั้วมหาวิทยาลัย</h3>
+                    <p>
+                        ขอต้อนรับน้อง ๆ เข้าสู่รั้ว มจพ. ภายในบ้านหลังใหญ่แห่งนี้ มีเรื่องราวดีๆ รอให้น้อง ๆ ได้เรียนรู้ควบคู่การปฏิบัติจริง มีความสุข สนุกไปพร้อม ๆ กัน อาจมีอุปสรรคบ้าง ขอให้น้องๆ เข้มแข็งและอดทน เพื่อพร้อมก้าวออกไปสู่สังคมได้อย่างมั่นคง มาสัมผัสประสบการณ์และความทรงจำที่ดี ณ สถานที่แห่งนี้ มจพ. ของเรา
+                    </p>
+                </div>
+                <div class="lifestyle-image">
+                    <img src="images/images4.png" alt="บรรยากาศการใช้ชีวิตในรั้วมหาวิทยาลัย">
                 </div>
             </div>
         </div>
         
+        <!-- Footer -->
         <div class="footer">
             <hr class="footer-line">
             <p>KMUTNB@email.kmutnb.ac.th</p>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMUTNB - ยืนยันข้อมูลและพิมพ์ใบชำระเงิน</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #2b2b2b;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin: 0 15px;
+        }
+
+        .header-title {
+            background: linear-gradient(135deg, #e97637);
+            color: #ffffff;
+            padding: 20px 30px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .form-body {
+            padding: 35px 40px;
+        }
+
+        .section-title {
+            color: #e68a17;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #fff8e7;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .display-row {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .display-label {
+            width: 260px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .display-value {
+            flex: 1;
+            color: #212529;
+            font-weight: 500;
+        }
+
+        .block-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e68a17;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .custom-table th, 
+        .custom-table td {
+            border: 1px solid #e9ecef;
+            padding: 10px 14px;
+            font-size: 14px;
+        }
+
+        .custom-table th {
+            background-color: #fff8e7;
+            color: #cc750a;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .custom-table td.center {
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .btn-orange {
+            background-color: #e68a17;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 11px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 3px 8px rgba(230, 138, 23, 0.25);
+            transition: all 0.2s;
+        }
+
+        .btn-orange:hover {
+            background-color: #cc750a;
+            box-shadow: 0 5px 12px rgba(204, 117, 10, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            box-shadow: 0 3px 8px rgba(108, 117, 125, 0.25);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        @media (max-width: 768px) {
+            .display-row {
+                flex-direction: column;
+            }
+            .display-label {
+                width: 100%;
+                margin-bottom: 2px;
+            }
+            .form-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header-title">
+            3. ยืนยันข้อมูลและพิมพ์ใบชำระเงิน
+        </div>
+
+        <div class="form-body">
+            
+            <!-- 3.1 ข้อมูลวุฒิการศึกษา -->
+            <div class="section-title">3.1 ข้อมูลวุฒิการศึกษา</div>
+            <div class="display-row">
+                <div class="display-label">วุฒิการศึกษาที่ใช้สมัคร</div>
+                <div class="display-value" id="val_qualification">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">ประเภทวิชา</div>
+                <div class="display-value" id="val_subject_type">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">กลุ่มวิชา</div>
+                <div class="display-value" id="val_subject_group">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">สาขาวิชา</div>
+                <div class="display-value" id="val_major">-</div>
+            </div>
+
+            <!-- 3.2 ข้อมูลการศึกษา -->
+            <div class="section-title">3.2 ข้อมูลการศึกษาและสถานะการศึกษาปัจจุบัน</div>
+            <div class="display-row">
+                <div class="display-label">ชื่อสถานศึกษา</div>
+                <div class="display-value" id="val_school_name">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">คะแนนเฉลี่ยสะสม (GPA)</div>
+                <div class="display-value" id="val_gpa">-</div>
+            </div>
+
+            <!-- 3.3 ข้อมูลสาขาวิชาที่เลือกสมัคร -->
+            <div class="section-title">3.3 ข้อมูลสาขาวิชาที่เลือกสมัคร</div>
+            <div class="display-row">
+                <div class="display-label">รวมเงินค่าสมัครสอบ</div>
+                <div class="display-value" style="color: #e68a17; font-weight: bold;">500 บาท</div>
+            </div>
+
+            <div class="block-title">สาขาวิชาที่เลือกสมัคร</div>
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">ลำดับที่</th>
+                        <th style="width: 45%;">สาขาวิชา</th>
+                        <th style="width: 40%;">คณะ/วิทยาลัย</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center">1</td>
+                        <td id="val_major_1">-</td>
+                        <td id="val_faculty_1">-</td>
+                    </tr>
+                    <tr>
+                        <td class="center">2</td>
+                        <td id="val_major_2">-</td>
+                        <td id="val_faculty_2">-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 3.4 ข้อมูลส่วนบุคคล -->
+            <div class="section-title">3.4 ข้อมูลส่วนบุคคลและสถานที่ติดต่อ</div>
+            <div class="display-row">
+                <div class="display-label">ชื่อ - นามสกุล (ภาษาไทย)</div>
+                <div class="display-value" id="val_name_th">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">เบอร์โทรศัพท์</div>
+                <div class="display-value" id="val_mobile">-</div>
+            </div>
+            <div class="display-row">
+                <div class="display-label">อีเมล</div>
+                <div class="display-value" id="val_email">-</div>
+            </div>
+
+            <div class="btn-container">
+                <a href="apply.html" class="btn-orange btn-secondary">กลับหน้าหลัก</a>
+                <button type="button" class="btn-orange" onclick="window.print()">พิมพ์ใบชำระเงิน</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const dataStr = localStorage.getItem('applicantData');
+            if (dataStr) {
+                const data = JSON.parse(dataStr);
+                document.getElementById('val_qualification').textContent = data.qualification || '-';
+                document.getElementById('val_subject_type').textContent = data.subject_type || '-';
+                document.getElementById('val_subject_group').textContent = data.subject_group || '-';
+                document.getElementById('val_major').textContent = data.major || '-';
+                document.getElementById('val_school_name').textContent = data.school_name || '-';
+                document.getElementById('val_gpa').textContent = data.gpa || '-';
+                document.getElementById('val_name_th').textContent = data.name_th || '-';
+                document.getElementById('val_mobile').textContent = data.mobile || '-';
+                document.getElementById('val_email').textContent = data.email || '-';
+            }
+        };
+    </script>
+</body>
+</html>
